@@ -10,7 +10,11 @@ class Program
         while (true)
         {
             System.Console.Write("Enter a number: ");
-            if (!int.TryParse(System.Console.ReadLine(), out int input))
+            string text = System.Console.ReadLine();
+            int input;
+            bool esNumeroValido = int.TryParse(text, out input);
+
+            if (esNumeroValido == false)
             {
                 System.Console.WriteLine("Please enter a valid number.");
                 continue;
