@@ -2,32 +2,58 @@ using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        List<int> numberList = new List<int>();
-        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
+        List<int> numbers = new List<int>();
+        System.Console.WriteLine("Enter a list of numbers, type 0 when finished.");
+
         while (true)
         {
-            Console.Write("Enter a number: ");
-            int input = int.Parse(Console.ReadLine());
-            if (input == 0)
+            System.Console.Write("Enter a number: ");
+            if (!int.TryParse(System.Console.ReadLine(), out int input))
             {
-                break;
+                System.Console.WriteLine("Please enter a valid number.");
+                continue;
             }
-            numberList.Add(input);
+            if (input == 0)
+                break;
+
+            numbers.Add(input);
+        }
+
+        if (numbers.Count == 0)
+        {
+            System.Console.WriteLine("No numbers were entered.");
+            return;
         }
 
         int sum = 0;
-        foreach (int number in numberList)
+        int smallestPositive = 0;
+        bool foundPositive = false;
+
+        foreach (int n in numbers)
         {
-            sum += number;
+            sum += n;
+
+            if (n > 0 && (!foundPositive || n < smallestPositive))
+            {
+                smallestPositive = n;
+                foundPositive = true;
+            }
         }
 
-        int positiveNumber = numberList.Where(n => n > 0).DefaultIfEmpty(int.MaxValue).Min();
+        numbers.Sort();
+        System.Console.WriteLine("The sum is: " + sum);
+        System.Console.WriteLine("The average is: " + (double)sum / numbers.Count);
 
-        Console.WriteLine("The sum is: " + sum);
-        Console.WriteLine("The average is: " + (double)sum / numberList.Count);
-        Console.WriteLine("The smaller positive number is: " + positiveNumber);
-        Console.WriteLine("The sorted list is: " + string.Join(", ", numberList.OrderBy(n => n)));
+        if (foundPositive)
+        {
+            System.Console.WriteLine("The smallest positive number is: " + smallestPositive);
+        }
+        else
+        {
+            System.Console.WriteLine("There are no positive numbers.");
+        }
+        System.Console.WriteLine("The sorted list is:\n" + string.Join("\n", numbers));
     }
 }
