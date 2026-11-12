@@ -37,9 +37,7 @@ class Program
                 entry._entryText = response;
 
                 journal.AddEntry(entry);
-
-                // TODO: Create an Entry object
-                // TODO: Add the entry to the journal
+                
             }
             else if (userChoice == "2")
             {

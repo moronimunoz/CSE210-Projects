@@ -6,6 +6,15 @@ public class Journal
 {
     private List<Entry> _entries = new List<Entry>();
 
+    /*
+    The reason we are using a AddEntry method is to
+    encapsulate the logic of adding an entry to the journal.
+    This allows us to easily add additional functionality
+    in the future, such as validation or logging, without having
+    to change the code that calls this method. It also makes the
+    code more readable and easier to understand, as it clearly
+    indicates that we are adding an entry to the journal.
+    */
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
@@ -32,6 +41,7 @@ public class Journal
 
     public void LoadFromFile(string file)
     {
+        //Add a try-catch block to handle the case where the file does not exist
         try
         {
             string[] lines = File.ReadAllLines(file);
