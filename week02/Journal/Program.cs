@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         // Create objects
-        Journal journal = new Journal();
+        Journal theJournal = new Journal();
         PromptGenerator generator = new PromptGenerator();
 
         Console.WriteLine("Welcome to the Journal Program!");
@@ -31,31 +31,31 @@ class Program
                 Console.WriteLine(prompt);
                 string response = Console.ReadLine();
 
-                Entry entry = new Entry();
-                entry._date = DateTime.Now.ToString("MM/dd/yyyy");
-                entry._promptText = prompt;
-                entry._entryText = response;
+                Entry anEntry = new Entry();
+                anEntry._date = DateTime.Now.ToString("MM/dd/yyyy");
+                anEntry._promptText = prompt;
+                anEntry._entryText = response;
 
-                journal.AddEntry(entry);
-                
+                theJournal.AddEntry(anEntry);
+
             }
             else if (userChoice == "2")
             {
-                journal.DisplayAll();
+                theJournal.DisplayAll();
             }
             else if (userChoice == "3")
             {
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
 
-                journal.LoadFromFile(filename);
+                theJournal.LoadFromFile(filename);
             }
             else if (userChoice == "4")
             {
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
 
-                journal.SaveToFile(filename);
+                theJournal.SaveToFile(filename);
             }
             else if (userChoice == "5")
             {
