@@ -10,8 +10,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Reference reference = new Reference("Oseas", 6, 6);
-        Scripture scripture = new Scripture(reference, "Porque misericordia quiero y no sacrificio, y conocimiento de Dios más que holocaustos.");
+        Reference reference = new Reference("Hosea", 6, 6);
+        Scripture scripture = new Scripture(reference, "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.");
 
         while (true)
         {
@@ -23,7 +23,7 @@ class Program
                 break;
             }
 
-            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+            Console.WriteLine($"\nPress enter to continue or type 'quit' to finish:");
             string userChoice = Console.ReadLine();
 
             if (userChoice == "quit")
