@@ -14,7 +14,7 @@ class Program
     {
         List<Scripture> scriptures = new List<Scripture>();
 
-        scriptures.Add(new Scripture(new Reference("Isaiah", 58, 5, 6), "Is it such a fast that I have chosen? a day for a man to afflict his soul? is it to bow down his head as a bulrush, and to spread sackcloth and ashes under him? wilt thou call this a fast, and an acceptable day to the Lord? Is not this the fast that I have chosen? to loose the bands of wickedness, to undo the heavy burdens, and to let the oppressed go free, and that ye break every yoke?"));
+        scriptures.Add(new Scripture(new Reference("Isaiah", 58, 5), "Is it such a fast that I have chosen? a day for a man to afflict his soul? is it to bow down his head as a bulrush, and to spread sackcloth and ashes under him? wilt thou call this a fast, and an acceptable day to the Lord?"));
         scriptures.Add(new Scripture(new Reference("Joshua", 1, 9), "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest."));
         scriptures.Add(new Scripture(new Reference("Hosea", 6, 6), "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings."));
 
